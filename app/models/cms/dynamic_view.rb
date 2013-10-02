@@ -54,7 +54,7 @@ module Cms
     end
 
     def self.base_path
-      File.join(Rails.root, "tmp", "views")
+      File.join(Rails.root, "uploads")
     end
 
     def self.form_name

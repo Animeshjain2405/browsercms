@@ -16,6 +16,15 @@ module Cms
       end
     end
 
+    def method_missing method, *args, &block
+      method = method.to_s.gsub("main_app_", "")
+      if main_app.respond_to?(method)
+        main_app.send(method, *args)
+      else
+        super
+      end
+    end
+
     # Returns a path to sort a table of Content Blocks by a given parameter. Retains other relevant parameters (like search criteria).
     #
     # @param [Cms::ContentType] content_type
