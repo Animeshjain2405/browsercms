@@ -30,7 +30,7 @@ module Cms
       path << "cms" if main_app_model?
       path << path_subject
 
-      path[0] = view.send(path[0]) # Replace the engine name with an actual lookup of the proper Engine routeset
+      path[0] = view.send(path[0]) unless main_app_model? # Replace the engine name with an actual lookup of the proper Engine routeset
       path
     end
 
